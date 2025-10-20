@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "26d97668-932c-4171-83e3-56efa3a5f62b",
+		"name": "Goal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49394249",
+		"_collection_link": "https://dharmananda20-8804613.postman.co/workspace/Dharmananda's-Workspace~6581a652-188d-4b18-80dc-dbe214b070d9/collection/49394249-26d97668-932c-4171-83e3-56efa3a5f62b?action=share&source=collection_link&creator=49394249"
+	},
+	"item": [
+		{
+			"name": "lihat goal",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/goal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"goal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buat goal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"goal\": \"naik 10 kg\",\r\n  \"targetDate\": \"2025-12-01\",\r\n  \"completed\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/goal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"goal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit goal",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"goal\": \"naik 10 kg\",\r\n  \"targetDate\": \"2025-12-01\",\r\n  \"completed\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/goal/68f5d0d3f28dd4c7e6005b36",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"goal",
+						"68f5d0d3f28dd4c7e6005b36"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete goal",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/goal/68f5d0d3f28dd4c7e6005b36",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"goal",
+						"68f5d0d3f28dd4c7e6005b36"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
