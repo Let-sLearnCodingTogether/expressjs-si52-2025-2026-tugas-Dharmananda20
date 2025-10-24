@@ -19,6 +19,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZmJhMTNiMjEwYzE0NDNjMjJlNGMyMyIsImlhdCI6MTc2MTMyMTQxMiwiZXhwIjoxNzYxMzI4NjEyfQ.fjh3N4O17bYJEWjOC29cVrH4I-d65zzAPsQN4OrBOvQ",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -54,11 +59,16 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZmJhMTNiMjEwYzE0NDNjMjJlNGMyMyIsImlhdCI6MTc2MTMyMTQxMiwiZXhwIjoxNzYxMzI4NjEyfQ.fjh3N4O17bYJEWjOC29cVrH4I-d65zzAPsQN4OrBOvQ",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"goal\": \"naik 10 kg\",\r\n  \"targetDate\": \"2025-12-01\",\r\n  \"completed\": false\r\n}",
+					"raw": "{\r\n  \"goal\": \"naik 10 kg\",\r\n  \"targetDate\": \"2025-12-01\",\r\n  \"completed\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -89,6 +99,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZmJhMTNiMjEwYzE0NDNjMjJlNGMyMyIsImlhdCI6MTc2MTMyMTQxMiwiZXhwIjoxNzYxMzI4NjEyfQ.fjh3N4O17bYJEWjOC29cVrH4I-d65zzAPsQN4OrBOvQ",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -101,7 +116,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/goal/68f5d0d3f28dd4c7e6005b36",
+					"raw": "http://localhost:3000/api/goal/68fba3004a871ef58730be26",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,7 +125,7 @@
 					"path": [
 						"api",
 						"goal",
-						"68f5d0d3f28dd4c7e6005b36"
+						"68fba3004a871ef58730be26"
 					]
 				}
 			},
@@ -125,6 +140,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZmJhMTNiMjEwYzE0NDNjMjJlNGMyMyIsImlhdCI6MTc2MTMyMTQxMiwiZXhwIjoxNzYxMzI4NjEyfQ.fjh3N4O17bYJEWjOC29cVrH4I-d65zzAPsQN4OrBOvQ",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -137,7 +157,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/goal/68f5d0d3f28dd4c7e6005b36",
+					"raw": "http://localhost:3000/api/goal/68fba3514a871ef58730be2a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -146,7 +166,77 @@
 					"path": [
 						"api",
 						"goal",
-						"68f5d0d3f28dd4c7e6005b36"
+						"68fba3514a871ef58730be2a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"testt\",\r\n  \"email\": \"testt@user.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"testt\",\r\n  \"email\": \"testt@user.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
 					]
 				}
 			},

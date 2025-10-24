@@ -4,17 +4,23 @@ import Goal from "../model/Goal.js";
 export const buatTujuan = async (req, res) => {
   try {
     const { goal, targetDate, completed } = req.body;
-    const newGoal = await Goal.create({ goal, targetDate, completed });
+    const newGoal = new Goal({
+      goal,
+      targetDate,
+      completed,
+      userId: req.user.id, 
+    });
+    await newGoal.save();
     res.status(201).json(newGoal);
-  } catch (error) {
-    res.status(400).json({ message: err.message });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
   }
 };
 
 
 export const lihatSemuaTujuan = async (req, res) => {
   try {
-    const data = await Goal.find();
+    const data = await Goal.find({userId : req.user.id});
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: err.message });
@@ -25,7 +31,11 @@ export const lihatSemuaTujuan = async (req, res) => {
 export const updateTujuan = async (req, res) => {
   try {
     const { id } = req.params;
-    const update = await Goal.findByIdAndUpdate(id, req.body, { new: true });
+    const update = await Goal.findOneAndUpdate(
+      {_id : id, userId : req.user.id},
+         req.body, 
+         { new: true });
+    if (!update) return res.status(404).json({ msg: "Data tidak ditemukan" });
     res.json(update);
   } catch (error) {
     res.status(400).json({ message: err.message });
@@ -36,7 +46,8 @@ export const updateTujuan = async (req, res) => {
 export const hapusTujuan = async (req, res) => {
   try {
     const { id } = req.params;
-    await Goal.findByIdAndDelete(id);
+    const hapus = await Goal.findOneAndDelete({_id : id, userId: req.user.id});
+     if (!hapus) return res.status(404).json({ msg: "Data tidak ditemukan" });
     res.json({ message: "Tujuan berhasil dihapus" });
   } catch (error) {
     res.status(400).json({ message: err.message });
