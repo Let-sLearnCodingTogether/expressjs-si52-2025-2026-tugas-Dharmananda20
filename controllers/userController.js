@@ -1,46 +1,90 @@
-import User from "../model/User.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-
-
+import UserModel from "../model/User.js";
+import { hash } from "../utils/hashUtil.js";
+import { jwtSignUtil } from "../utils/jwtSignUtil.js";
+import { compare } from "../utils/hashUtil.js";
 export const register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const registerdata = req.body
+    
 
-    const cek = await User.findOne({ email });
-    if (cek) return res.status(400).json({ msg: "Email sudah digunakan" });
+    console.log(registerdata.username);
 
-    const salt = await bcrypt.genSalt(10);
-    const hashPass = await bcrypt.hash(password, salt);
+    const hashPassword = hash(registerdata.password)
 
-    const newUser = await User.create({ username, email, password: hashPass });
+    await UserModel.create({
+      username : registerdata.username,
+      email : registerdata.email,
+      password : hashPassword
+      
+    })
 
-    res.status(201).json({ msg: "Registrasi berhasil", user: newUser });
-  } catch (err) {
-    console.log("Error register:", err.message);
-    res.status(500).json({ msg: err.message });
+    res.status(201).json({
+      message: "Berhasil register, silahkan login",
+      data: null
+    })
+  } catch (e) {
+    res.status(500).json({
+      message: e.message,
+      data: null
+    })
   }
-};
+}
 
-export const login = async (req, res) => {
+export const UserProfile = async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ msg: "User tidak ditemukan" });
-
-    const cocok = await bcrypt.compare(password, user.password);
-    if (!cocok) return res.status(401).json({ msg: "Password salah" });
-
-    const token = jwt.sign({ id: user._id }, "rahasia123", { expiresIn: "2h" });
-
-    res.json({
-      msg: "Login berhasil",
-      token,
-      user: { id: user._id, username: user.username, email: user.email }
+    res.status(200).json({
+      message: "Profil pengguna berhasil diambil",
+      user: req.user
     });
-  } catch (err) {
-    console.log("Error login:", err.message);
-    res.status(500).json({ msg: "Gagal login" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
+
+export const login = async (req,res) => {
+  try{
+    const loginData = req.body
+
+    //mencari user bedasarkan email
+    const user = await UserModel.findOne({
+      email : loginData.email
+
+    })
+
+  if (!user) {
+   return res.status(404).json({
+      message: "User tidak di temukan",
+      data:null
+
+    })
+  }
+
+// membandingkan password yang ada didalam db dengan request
+  if(compare(loginData.password, user.password)){
+    return res.status(200).json({
+      message : "Login Berhasil",
+      data : {
+        username : user.username,
+        email : user.email,
+        token : jwtSignUtil(user)
+      }
+    })
+
+  }
+
+  // membandingkan password yang ada didalam db dengan request
+
+    return res.status(200).json({
+      message : "Login Gagal",
+      data : null
+        
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      message : error,
+      data : null
+    }
+)
+  }
+}

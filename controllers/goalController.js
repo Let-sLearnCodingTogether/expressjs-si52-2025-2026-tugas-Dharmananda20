@@ -13,9 +13,9 @@ export const buatTujuan = async (req, res) => {
     await newGoal.save();
     res.status(201).json(newGoal);
   } catch (err) {
-    res.status(500).json({ msg: err.message });
+    res.status(500).json({ messsage: error.message });
   }
-};
+};  
 
 
 export const lihatSemuaTujuan = async (req, res) => {
@@ -23,7 +23,7 @@ export const lihatSemuaTujuan = async (req, res) => {
     const data = await Goal.find({userId : req.user.id});
     res.json(data);
   } catch (error) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -38,7 +38,7 @@ export const updateTujuan = async (req, res) => {
     if (!update) return res.status(404).json({ msg: "Data tidak ditemukan" });
     res.json(update);
   } catch (error) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: error.message });
   }
 };
 
@@ -50,6 +50,6 @@ export const hapusTujuan = async (req, res) => {
      if (!hapus) return res.status(404).json({ msg: "Data tidak ditemukan" });
     res.json({ message: "Tujuan berhasil dihapus" });
   } catch (error) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: error.message });
   }
 };

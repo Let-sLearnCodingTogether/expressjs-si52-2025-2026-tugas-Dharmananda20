@@ -21,7 +21,7 @@ const goalSchema = new mongoose.Schema({
 }
 }, 
 { 
-    timestamps: true 
+    timestamps: false
 }
 );
 

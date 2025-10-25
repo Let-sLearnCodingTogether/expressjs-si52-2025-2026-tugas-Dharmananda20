@@ -22,7 +22,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZmJhMTNiMjEwYzE0NDNjMjJlNGMyMyIsImlhdCI6MTc2MTMyMTQxMiwiZXhwIjoxNzYxMzI4NjEyfQ.fjh3N4O17bYJEWjOC29cVrH4I-d65zzAPsQN4OrBOvQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0dCIsImVtYWlsIjoidGVzdHR0QHVzZXIuY29tIiwiaWF0IjoxNzYxNDA2NDE4LCJleHAiOjE3NjE0MTAwMTh9.SeSz9kLvoppvUvxUWA_T5ozGeS7p5xLq8Xdc8NPygQU",
 						"type": "text"
 					}
 				],
@@ -62,13 +62,13 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZmJhMTNiMjEwYzE0NDNjMjJlNGMyMyIsImlhdCI6MTc2MTMyMTQxMiwiZXhwIjoxNzYxMzI4NjEyfQ.fjh3N4O17bYJEWjOC29cVrH4I-d65zzAPsQN4OrBOvQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0dCIsImVtYWlsIjoidGVzdHR0QHVzZXIuY29tIiwiaWF0IjoxNzYxNDA2NDE4LCJleHAiOjE3NjE0MTAwMTh9.SeSz9kLvoppvUvxUWA_T5ozGeS7p5xLq8Xdc8NPygQU",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"goal\": \"naik 10 kg\",\r\n  \"targetDate\": \"2025-12-01\",\r\n  \"completed\": true\r\n}",
+					"raw": "{\r\n  \"goal\": \"naik 10 kg tes\",\r\n  \"targetDate\": \"2025-12-01\",\r\n  \"completed\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -116,7 +116,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/goal/68fba3004a871ef58730be26",
+					"raw": "http://localhost:3000/api/goal/68fcf020fba0482c42e81b55",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -125,7 +125,7 @@
 					"path": [
 						"api",
 						"goal",
-						"68fba3004a871ef58730be26"
+						"68fcf020fba0482c42e81b55"
 					]
 				}
 			},
@@ -185,7 +185,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"testt\",\r\n  \"email\": \"testt@user.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n  \"username\": \"testtt\",\r\n  \"email\": \"testtt@user.com\",\r\n  \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -220,7 +220,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"testt\",\r\n  \"email\": \"testt@user.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n  \"username\": \"testtt\",\r\n  \"email\": \"testtt@user.com\",\r\n  \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -237,6 +237,44 @@
 					"path": [
 						"api",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0dCIsImVtYWlsIjoidGVzdHR0QHVzZXIuY29tIiwiaWF0IjoxNzYxNDA2NDE4LCJleHAiOjE3NjE0MTAwMTh9.SeSz9kLvoppvUvxUWA_T5ozGeS7p5xLq8Xdc8NPygQU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"profile"
 					]
 				}
 			},
